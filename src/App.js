@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Store from './Pages/Cart/Store/Store';
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          <Store/>
         </a>
       </header>
     </div>
