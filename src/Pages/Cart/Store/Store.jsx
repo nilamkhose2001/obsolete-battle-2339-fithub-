@@ -72,7 +72,9 @@ const Store = () => {
                 gridTemplateColumns={{
                   base: "repeat(1,1fr)",
                   md: "repeat(2,1fr)",
-                  lg: "repeat(4,1fr)",
+                  
+                  xl:"repeat(4,1fr)",
+                  lg:"repeat(3,1fr)"
                 }}
                 gap="2"
               >
@@ -116,10 +118,7 @@ const Store = () => {
                 log in, redeem your gift and buy any of our Workout Programs,
                 calendar-based Meal Plans, or a membership to FB Plus!
               </Text>
-              <Text p={"1"} m={"1"}>
-                Fitness Blender eGift Cards can only be used on
-                fitnessblender.com.
-              </Text>
+              
             </Stack>
             <Stack
               marginTop="8"
@@ -147,6 +146,10 @@ const Store = () => {
                 ))}
               </Grid>
             </Stack>
+            <Text p={"1"} m={"1"}>
+                Fitness Blender eGift Cards can only be used on
+                fitnessblender.com.
+              </Text>
           </Box>
         </Center>
       </Container>
@@ -158,11 +161,11 @@ const Store = () => {
             base: "repeat(1,1fr)",
             md: "repeat(2,1fr)",
             }} gap={"2"}>
-              <Stack>
-              {/* <img width={"50%"} src={shirts} alt="cloths" />  */}
-              <Image width={"50%"} src={shirts} alt="cloths" />
-              </Stack>
-              <Stack textAlign={"left"}>
+              <Box>
+           
+              <Image width={"100%"} src={shirts} alt="cloths" />
+              </Box>
+              <Box textAlign={"left"}>
                 <Heading marginBottom={"2"} p="4" fontWeight="400" size={"2xl"}>
                   Fitness Blender Gear
                 </Heading>
@@ -186,7 +189,7 @@ const Store = () => {
                 <Text p="4" size={"xl"} color="blue">
                   Tell us what gear you'd like.
                 </Text>
-              </Stack>
+              </Box>
             </Grid>
           </Box>
         </Center>
