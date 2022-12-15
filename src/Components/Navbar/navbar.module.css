@@ -1,0 +1,9 @@
+
+.box{
+    display: flex;
+    align-items: center;
+}
+.Nav{
+    font-family: "Maison Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 600;
+}

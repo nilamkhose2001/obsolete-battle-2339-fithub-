@@ -13,23 +13,11 @@
 .cartCont{
     background-color: #F0F4F6;
 }
-.b{
-    display: none;
-    transition: visibility 0.5s, opacity 0.5s linear;
-}
+
 
 .a:hover + .b {
 
     display: block;
     
 }
-.a:hover{
-    display: none;
-}
-.b:hover ~.a{
-    display: none;
-    color: gray;
-}
-.b:hover{
-    display: block;
-}
+
