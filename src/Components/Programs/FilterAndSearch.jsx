@@ -1,14 +1,10 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import React from "react";
 import { AiOutlineFilter, AiOutlineSearch } from "react-icons/ai";
 
-export default function HeadingAndFilter({ pageName }) {
+export default function FilterAndSearch() {
   return (
     <>
-      {/* heading  */}
-      <Box py="3" px="10">
-        <Heading fontWeight="normal">{pageName}</Heading>
-      </Box>
-
       {/* filter and search  */}
       <hr />
       <Flex alignItems="center" px="10">
