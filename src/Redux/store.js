@@ -1,9 +1,12 @@
 import {legacy_createStore,combineReducers,compose,applyMiddleware} from "redux"
+import { authReducer } from "./auth/auth.reducer";
 
 import thunk from "redux-thunk"
 //console.log(feedReducer)
 const rootReducer=combineReducers(
-    {}
+    {
+        auth : authReducer,
+    }
     )
 
     const createCompose=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__||compose
