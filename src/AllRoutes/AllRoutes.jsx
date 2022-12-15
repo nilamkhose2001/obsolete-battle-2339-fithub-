@@ -1,9 +1,8 @@
-import { Routes, Route } from "react-router-dom";
-import App from "../App";
+import { Routes,  } from "react-router-dom";
 export const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<App />} />
+
     </Routes>
   );
 };
