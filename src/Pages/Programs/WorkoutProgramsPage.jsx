@@ -1,7 +1,8 @@
+import { Heading } from "@chakra-ui/react";
 export default function WorkoutProgramsPage() {
   return (
     <div>
-      <h1>WorkoutProgramsPage Page</h1>
+      <Heading>Workout Programs</Heading>
     </div>
   );
 }
