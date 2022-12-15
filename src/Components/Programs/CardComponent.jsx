@@ -6,7 +6,7 @@ export default function CardComponent() {
 
   return (
     <Box
-      w={!isSmallerThan700 ? "300px" : "100%"}
+      w={!isSmallerThan700 ? "303px" : "100%"}
       bg="white"
       border="3px solid #F0F4F6"
       _hover={{ border: "3px solid #4296CB" }}
