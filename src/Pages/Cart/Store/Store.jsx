@@ -45,25 +45,25 @@ const Store = () => {
             <Stack
               textAlign={"left"}
               marginTop="20"
-              maxW="80%"
+              maxW="90%"
               marginLeft="auto"
               marginRight="auto"
             >
-              <Heading p={"1"} m={"1"}>
+              <Text fontSize={"5xl"}>
                 FB Plus Passes
-              </Heading>
-              <Text p={"1"} m={"1"} fontSize="17">
+              </Text>
+              <Text fontSize="17">
                 Passes give you full access to everything FB Plus has to offer,
                 without a long-term subscription. Choose a pass that fits your
                 budget and your schedule, and extend your access with another
                 pass at any time. Multiple passes can be purchased at once for
                 longer access.
               </Text>
-              
+
             </Stack>
             <Stack
               marginTop="8"
-              maxW={{ base: "90%", md: "80%", lg: "80%" }}
+              maxW={"90%"}
               marginLeft="auto"
               marginRight="auto"
               marginBottom={"20"}
@@ -72,11 +72,12 @@ const Store = () => {
                 gridTemplateColumns={{
                   base: "repeat(1,1fr)",
                   md: "repeat(2,1fr)",
-                  
-                  xl:"repeat(4,1fr)",
-                  lg:"repeat(3,1fr)"
+
+                  xl: "repeat(4,1fr)",
+                  lg: "repeat(3,1fr)"
                 }}
                 gap="2"
+                mb={"5"}
               >
                 {storeSlice.ePassArray.map((el, index) => (
                   //console.log(el.lazyfade_src)
@@ -89,12 +90,11 @@ const Store = () => {
                   />
                 ))}
               </Grid>
-             
-            </Stack>
-             <Text p={"1"} m={"1"}>
-                Note: Passes cannot be used at the same time as a monthly or
-                yearly FB Plus subscription.
+              <Text bg={"#e3ebee"} textAlign={"left"} p={"5"} >
+                Passes cannot be used at the same time as a monthly or yearly FB Plus subscription.
               </Text>
+            </Stack>
+
           </Box>
         </Center>
       </Container>
@@ -105,24 +105,25 @@ const Store = () => {
             <Stack
               textAlign={"left"}
               marginTop="20"
-              maxW="80%"
+              maxW="90%"
               marginLeft="auto"
               marginRight="auto"
             >
-              <Heading p={"1"} m={"1"}>
+
+              <Text fontSize={"5xl"}>
                 Fitness Blender eGift Cards
-              </Heading>
-              <Text p={"1"} m={"1"} fontSize="17">
+              </Text>
+              <Text fontSize="17">
                 Give the gift of health and fitness with Fitness Blender eGift
                 Cards. Send an electronic card via email and the recipient can
                 log in, redeem your gift and buy any of our Workout Programs,
                 calendar-based Meal Plans, or a membership to FB Plus!
               </Text>
-              
+
             </Stack>
             <Stack
               marginTop="8"
-              maxW="80%"
+              maxW="90%"
               marginLeft="auto"
               marginRight="auto"
               marginBottom={"20"}
@@ -135,6 +136,7 @@ const Store = () => {
                   xl: "repeat(4,1fr)",
                 }}
                 gap="2"
+                mb={"5"}
               >
                 {storeSlice.giftArray.map((el, index) => (
                   <Gift
@@ -144,12 +146,11 @@ const Store = () => {
                     fun={addItem}
                   />
                 ))}
-              </Grid>
-            </Stack>
-            <Text p={"1"} m={"1"}>
-                Fitness Blender eGift Cards can only be used on
-                fitnessblender.com.
+              </Grid> <Text bg={"#e3ebee"} textAlign={"left"} p={"5"}>
+                Fitness Blender eGift Cards can only be used on fitnessblender.com.
               </Text>
+            </Stack>
+
           </Box>
         </Center>
       </Container>
@@ -158,12 +159,12 @@ const Store = () => {
         <Center>
           <Box>
             <Grid templateColumns={{
-            base: "repeat(1,1fr)",
-            md: "repeat(2,1fr)",
+              base: "repeat(1,1fr)",
+              md: "repeat(2,1fr)",
             }} gap={"2"}>
               <Box>
-           
-              <Image width={"100%"} src={shirts} alt="cloths" />
+
+                <Image width={"100%"} src={shirts} alt="cloths" />
               </Box>
               <Box textAlign={"left"}>
                 <Heading marginBottom={"2"} p="4" fontWeight="400" size={"2xl"}>
@@ -203,9 +204,9 @@ const Store = () => {
               Explore Workout Programs, Meal Plans, and FB Plus memberships.
             </Text>
             <Grid templateColumns={{
-               base: "repeat(1,1fr)",
-               md: "repeat(3,1fr)",
-              
+              base: "repeat(1,1fr)",
+              md: "repeat(3,1fr)",
+
             }} gap={"3"}>
               <Button
                 paddingX={"5rem"}
@@ -218,7 +219,7 @@ const Store = () => {
                     "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                 }}
               >
-               <Link to='/workoutPrograms'> PROGRAMS</Link>
+                <Link to='/workoutPrograms'> PROGRAMS</Link>
               </Button>
               <Button
                 paddingX={"5rem"}
@@ -231,7 +232,7 @@ const Store = () => {
                     "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                 }}
               >
-               <Link to='/mealPlans'>MEAL PLANS</Link> 
+                <Link to='/mealPlans'>MEAL PLANS</Link>
               </Button>
               <Button
                 paddingX={"5rem"}

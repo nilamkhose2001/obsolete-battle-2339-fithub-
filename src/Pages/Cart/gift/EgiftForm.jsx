@@ -12,8 +12,8 @@ const EgiftForm = () => {
             type="email"
             required
           />
-          <Textarea placeholder="Add a Massage" />
-          <Checkbox colorScheme="blue">Make this gift anonymous.</Checkbox>
+          <Textarea required placeholder="Add a Massage" />
+          <Checkbox colorScheme="blue" >Make this gift anonymous.</Checkbox>
         </Stack>
       </form>
     </>
