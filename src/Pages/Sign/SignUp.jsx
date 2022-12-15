@@ -4,6 +4,9 @@ import { BsGoogle } from 'react-icons/bs';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { Box, Button,  Checkbox,  Flex, Heading, Input, InputGroup, InputRightElement, Stack, Text, VStack } from '@chakra-ui/react'
 import Captcha from './Captcha';
+import { signup } from "../../Redux/auth/auth.action";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const SignUp = () => {
   const initialState = {
@@ -17,6 +20,8 @@ const SignUp = () => {
 
   const [formstate, setFormstate] = useState(initialState);
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
+  const {userRegister} = useSelector((store)=> store.auth)
   
   const handleClickPassword = () => setShow(!show)
 
@@ -31,9 +36,10 @@ const SignUp = () => {
   };
 
   function print(){
-    console.log(formstate)
+    console.log(formstate);
+    dispatch(signup(formstate));
   }
- 
+  console.log(userRegister);
 
   return (
   <Box w="50%" m="auto">

@@ -4,6 +4,9 @@ import { BsGoogle } from 'react-icons/bs';
 import { Box, Button,  Checkbox,  Flex, FormControl, Heading, Input, Stack, Text, useToast, VStack } from '@chakra-ui/react'
 import Captcha from './Captcha';
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { login,logout } from "../../Redux/auth/auth.action";
+
 
 const SignIn = () => {
   const initialState = {
@@ -12,7 +15,8 @@ const SignIn = () => {
 } ;
 
   const [formstate, setFormstate] = useState(initialState);
-  const toast = useToast()
+  const toast = useToast();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +32,7 @@ const SignIn = () => {
  function handleSubmit(e){
   
     e.preventDefault();
-    
+    dispatch(login(formstate));
 
     toast({
       title: 'Login Successfully',
@@ -42,6 +46,9 @@ const SignIn = () => {
   let data = await res.data;
   console.log(data);
  }
+//  function logoutt(){
+//   dispatch(logout());
+//  }
   
 
   return (
@@ -77,6 +84,7 @@ const SignIn = () => {
         <Input  type="submit" _hover={{cursor:"pointer"}}  bg="twitter.600" mt="10" w="70%" color="white" placeholder='Submit form' />
       </FormControl>
       </form>
+      {/* <Button onClick={logoutt} >Logout</Button> */}
      
       </Box>
 
