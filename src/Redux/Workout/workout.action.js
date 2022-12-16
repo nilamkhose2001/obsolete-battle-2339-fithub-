@@ -5,7 +5,6 @@ export const workoutAction=()=>async(dispatch)=>{
     dispatch({type:GET_DATA_LOADING})
     try{
         const response=await axios.get('https://fakestoreapi.com/products')
-        //console.log(response)
         dispatch({type:GET_DATA_SUCCESS,payload:response.data})
 
     }catch(e){

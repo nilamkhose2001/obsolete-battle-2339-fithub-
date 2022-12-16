@@ -1,11 +1,13 @@
 import {legacy_createStore,combineReducers,compose,applyMiddleware} from "redux"
 import { authReducer } from "./auth/auth.reducer";
+import { workoutReducer } from "./Workout/workout.reducer"
 
 import thunk from "redux-thunk"
 //console.log(feedReducer)
 const rootReducer=combineReducers(
     {
         auth : authReducer,
+        workout:workoutReducer
     }
     )
 

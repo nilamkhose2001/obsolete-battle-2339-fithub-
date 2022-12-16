@@ -15,6 +15,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 import { useSelector,useDispatch } from "react-redux";
 import { workoutAction } from "../../Redux/Workout/workout.action";
+import { Link } from "react-router-dom";
 
 export const Filter = () => {
   let [trainer, setTrainer] = useState(false);
@@ -49,15 +50,6 @@ export const Filter = () => {
     },
   ];
 
-  // const handleClick1 = () => {
-  //   setSearch(false);
-  //   setFilter(false);
-  //   if (trainer) {
-  //     setTrainer(false);
-  //   } else {
-  //     setTrainer(true);
-  //   }
-  // };
   const handleClick2 = () => {
     setTrainer(false);
     setSearch(false);
@@ -81,22 +73,7 @@ export const Filter = () => {
     <>
       <Container maxW="100%" pl="5%" className={styles.filterCont}>
         <Flex>
-          {/* <Box onClick={() => handleClick1()} className={styles.btn} bg="white">
-            {" "}
-            <MdOutlinePersonSearch />
-            <Spacer />
-            <Text
-              sx={{
-                "@media all and (min-width:0px) and (max-width:987px)": {
-                  display: "none",
-                },
-              }}
-              fontSize="12px"
-            >
-              TRAINERS
-            </Text>
-            <BiChevronDown />
-          </Box> */}
+         
           <Box onClick={() => handleClick2()} className={styles.btn}>
             <MdOutlineFilterAlt />
             <Spacer />
@@ -128,12 +105,7 @@ export const Filter = () => {
             <BiChevronDown />
           </Box>
         </Flex>
-        {/* {trainer && (
-          <Container className={styles.trainer} maxW="100%" pt={2}>
-            {" "}
-            trainerdfhjdhj sdfhgh fjsd sfj sdfhg sdhf
-          </Container>
-        )} */}
+        
         {filter && (
           <Container className={styles.filter} maxW="100%" pt={2}>
             filter dfhjdhj sdfhgh fjsd sfj sdfhg sdhf
@@ -156,6 +128,8 @@ export const Filter = () => {
           {data?.map((el, i) => (
             <Box bg="white" height="230px" key={i}>
               {" "}
+              <Link to='/:id'>
+
               <Box height="230px">
                 <Image src={el.image} borderBottom="1px solid #F0F4F6"></Image>
                 <Text ml={2} mt={2} fontSize="13px">
@@ -167,8 +141,10 @@ export const Filter = () => {
                 <Text ml={2} fontSize="11px" color="#4296CB">
                   {el.primaryvalue}
                 </Text>
+               
               </Box>
               <Box bg="yellow" height="230px"></Box>
+              </Link>
             </Box>
           ))}
         </SimpleGrid>
