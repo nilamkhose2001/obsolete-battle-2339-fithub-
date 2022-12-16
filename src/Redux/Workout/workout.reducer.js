@@ -12,10 +12,10 @@ export const workoutReducer=(state=initialDataState,action)=>{
             return {...state,WorkoutData:action.payload,WorkoutError:false,WorkoutLoading:false}
         }
         case GET_DATA_LOADING:{
-            return {...state}
+            return {...state,WorkoutLoading:true,WorkoutError:false}
         }
         case GET_DATA_ERROR:{
-            return {...state}
+            return {...state,WorkoutLoading:false,WorkoutError:true}
         }
         default:return state
     }
