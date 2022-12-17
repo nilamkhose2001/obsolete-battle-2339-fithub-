@@ -5,7 +5,7 @@ export const login =(creds)=>async(dispatch)=>{
     dispatch({type: AUTH_LOGIN_LOADING});
     try{
         
-        let res= await axios.post("http://localhost:8080/login", creds);
+        let res= await axios.post("https://fithub.onrender.com/auth/login", creds);
         console.log(res);
         dispatch({type: AUTH_LOGIN_SUCCESS, payload:res.data.token})
         if(res.data.token){
@@ -28,7 +28,7 @@ export const logout = () => async (dispatch) => {
 export const signup = (creds) => async (dispatch) => {
     dispatch({type:AUTH_SIGNUP_LOADING});
     try{
-        let response = await axios.post(`http://localhost:8080/signup`, creds);
+        let response = await axios.post(`https://fithub.onrender.com/auth/signup`, creds);
         console.log(response);
         dispatch({type:AUTH_SIGNUP_SUCCESS, payload: response.data.message});
         // if(response.data.token){
