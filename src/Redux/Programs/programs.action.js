@@ -15,3 +15,25 @@ export const getWorkoutPrograms = () => async (dispatch) => {
     payload: data,
   });
 };
+
+export const getMealPlans = () => async (dispatch) => {
+  let res = await axios.get(
+    "https://fithub.onrender.com/products?category=meals"
+  );
+  let data = await res.data;
+  dispatch({
+    type: GET_MEAL_PLANS,
+    payload: data,
+  });
+};
+
+export const getPilotPrograms = () => async (dispatch) => {
+  let res = await axios.get(
+    "https://fithub.onrender.com/products?category=pilotprogram"
+  );
+  let data = await res.data;
+  dispatch({
+    type: GET_PILOT_PROGRAMS,
+    payload: data,
+  });
+};
