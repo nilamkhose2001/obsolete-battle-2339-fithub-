@@ -4,10 +4,18 @@ import FilterAndSearch from "../../Components/Programs/FilterAndSearch";
 import PageHeading from "../../Components/Programs/PageHeading";
 import ResultAndSortOptions from "../../Components/Programs/ResultAndSortOptions";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getWorkoutPrograms } from "../../Redux/Programs/programs.action";
+import AddToBagModal from "../../Components/Programs/AddToBagModal";
 
 export default function WorkoutProgramsPage() {
+  // const [isbtnclicked, setBtn] = useState(false);
+  const [openModal, setModalStatus] = useState(false);
+
+  const clicked=()=>{
+    setModalStatus(true)
+  }
+
   const workoutProgramData = useSelector(
     (store) => store.programs.workoutProgramData
   );
@@ -56,10 +64,12 @@ export default function WorkoutProgramsPage() {
               price={program.price}
               contentshref={program.contentshref}
               exclusiveitem={program.exclusiveitem}
+              isClicked={clicked}
             />
           ))}
         </Flex>
       </Box>
+      <AddToBagModal openModal={openModal} setModalStatus={setModalStatus} />
     </div>
   );
 }
