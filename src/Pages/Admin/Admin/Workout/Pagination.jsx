@@ -7,10 +7,8 @@ const Pagination = ( {current, onChange, total} ) => {
     const next = <Button rightIcon={<AiOutlineDoubleRight />} ml="2" disabled={current==total} onClick={()=>onChange(current+1)} >Next</Button>
   
     const pages= new Array(total).fill(0).map((a,i) => 
-    <Button     mx={1}
-    px={4}
-    py={2}
-    rounded="md" colorScheme="teal" _hover={{color:"white",background:"black"}}
+    <Button mx={1} px={4} py={2} key={i}
+     rounded="md" colorScheme="teal" _hover={{color:"white",background:"black"}}
      disabled={current==(i+1)} onClick={()=>onChange(i+1)}>{i+1}</Button>
     )
 
