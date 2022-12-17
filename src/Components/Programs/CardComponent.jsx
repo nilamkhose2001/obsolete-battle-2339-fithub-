@@ -26,6 +26,7 @@ export default function CardComponent({
   week,
   time,
   desc,
+  subtitle,
   price,
 }) {
   const [isSmallerThan700] = useMediaQuery("(max-width: 380px)");
@@ -39,13 +40,14 @@ export default function CardComponent({
     >
       <a href={contentshref}>
         <Image src={image} width="100%" maxH="168px" />
-        <Box margin="auto" w="90%" pt="5" pb="8">
+        <Box margin="auto" w="90%" pt="5" pb="8" minHeight="150px">
           <Text color="#4A9ACD" mb="1" fontSize="11px">
             {week} - {time}
           </Text>
           <Text fontWeight="bold" fontSize="15px">
             {desc}
           </Text>
+          {subtitle ? <Text>{subtitle}</Text> : null}
         </Box>
       </a>
       <Flex py="3" px="2" justifyContent="space-between">
