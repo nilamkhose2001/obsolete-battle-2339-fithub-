@@ -3,7 +3,14 @@ import CardComponent from "../../Components/Programs/CardComponent";
 import FilterAndSearch from "../../Components/Programs/FilterAndSearch";
 import PageHeading from "../../Components/Programs/PageHeading";
 import ResultAndSortOptions from "../../Components/Programs/ResultAndSortOptions";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getWorkoutPrograms } from "../../Redux/Programs/programs.action";
+
 export default function WorkoutProgramsPage() {
+  const workoutProgramData = useSelector((store) => store.programs.programData);
+  const dispatch = useDispatch();
+
   const result = "62";
   const optionsArray = [
     "Newest First",
@@ -14,6 +21,11 @@ export default function WorkoutProgramsPage() {
     "Longest Workouts",
     "Shortest Workouts",
   ];
+
+  useEffect(() => {
+    dispatch(getWorkoutPrograms());
+  }, []);
+
   return (
     <div>
       {/* heading,filter,search  */}
@@ -27,16 +39,23 @@ export default function WorkoutProgramsPage() {
         <ResultAndSortOptions result={result} options={optionsArray} />
         {/* workout programs  */}
         <Flex px="2" pb="2" flexWrap="wrap" gap="1" justifyContent="start">
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
+          {/* <CardComponent /> */}
+          {workoutProgramData.map((program) => (
+            <CardComponent
+              key={program._id}
+              image={program.image}
+              week={program.week}
+              time={program.time}
+              desc={program.desc}
+              price={program.price}
+              contentshref={program.contentshref}
+              exclusiveitem={program.exclusiveitem}
+            />
+          ))}
         </Flex>
       </Box>
+
+      {console.log(workoutProgramData)}
     </div>
   );
 }
