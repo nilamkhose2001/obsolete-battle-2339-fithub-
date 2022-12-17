@@ -1,15 +1,3 @@
-// const initState = {
-//     _id: "",
-//     contentshref: "",
-//     exclusiveitem: "",
-//     image: "",
-//     week: "",
-//     time: "",
-//     desc: "",
-//     price: "",
-//     category: "",
-//   };
-
 import {
   GET_WORKOUT_PLANS,
   GET_MEAL_PLANS,
@@ -25,16 +13,32 @@ import {
   UPDATE_PROGRAM_FAILURE,
 } from "../Programs/programs.actionTypes";
 
-const initState = { programData: [], AddProgram: { loading: false, error: false },  DeleteProgram: { loading: false, error: false },  UpdateProgram: { loading: false, error: false } };
+
+
+const initState = {
+  workoutProgramData: [],
+  pilotProgramData: [],
+  mealPlansData: [],
+  AddProgram: { loading: false, error: false },  DeleteProgram: { loading: false, error: false },  UpdateProgram: { loading: false, error: false }
+};
+
 
 export const programsReducer = (state = initState, { type, payload }) => {
   switch (type) {
     case GET_WORKOUT_PLANS: {
       return {
         ...state,
-        programData: payload,
+        workoutProgramData: payload,
       };
     }
+
+    case GET_MEAL_PLANS: {
+      return {
+        ...state,
+        mealPlansData: payload,
+      };
+    }
+
 
 
     case ADD_PROGRAM_REQUEST:
@@ -94,6 +98,14 @@ export const programsReducer = (state = initState, { type, payload }) => {
           ...state,
           UpdateProgram: { loading: false, error: true },
         };
+
+
+    case GET_PILOT_PROGRAMS: {
+      return {
+        ...state,
+        pilotProgramData: payload,
+      };
+    }
 
 
     default:
