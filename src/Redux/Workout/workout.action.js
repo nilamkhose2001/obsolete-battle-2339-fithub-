@@ -5,6 +5,7 @@ export const workoutAction=(url)=>async(dispatch)=>{
     dispatch({type:GET_DATA_LOADING})
     try{
         const response=await axios.get(url)
+
         dispatch({type:GET_DATA_SUCCESS,payload:response.data.product})
 
     }catch(e){
