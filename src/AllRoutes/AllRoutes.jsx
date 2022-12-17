@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home/Home";
+import { SingleProduct } from "../Pages/Workout/SingleProduct";
 import {Workout} from "../Pages/Workout/Workout"
 export const AllRoutes = () => {
   return (
@@ -13,6 +14,7 @@ export const AllRoutes = () => {
       <Route path="/mealplans" element={<h1>Meal Plans</h1>}/>
       <Route path="/pilotprograms" element={<h1>Pilot programs</h1>}/>
       <Route path="/routines" element={<h1>Routines</h1>}/>
+      <Route path="/workoutvideo/:id" element={<SingleProduct/>}></Route>
     </Routes>
   );
 };
