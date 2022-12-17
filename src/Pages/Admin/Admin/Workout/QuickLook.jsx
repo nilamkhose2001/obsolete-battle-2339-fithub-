@@ -22,7 +22,7 @@ import React from 'react'
 
 
 
-const QuickLook = ({ img,text,exclusive,price,challenge,perDay,link }) => {
+const QuickLook = ({ img,title,subtitle,price, primaryvalue,link,calories,trainingtype}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
 
@@ -49,20 +49,24 @@ const QuickLook = ({ img,text,exclusive,price,challenge,perDay,link }) => {
 
               <Stack>
                 <CardBody>
-                  <Heading size='md' color="red.400">{exclusive}</Heading>
+                  <Heading size='md' color="red.400">{trainingtype}</Heading>
 
                   <Text py='2' color="teal">
-                    {text}
+                    {title}
                   </Text>
                  <Flex>
                   <Text fontSize="17">Price: </Text>
                   <Text fontSize="18" ml="3" fontWeight="600" color="orange">{price}</Text>
                  </Flex>
                  <Flex>
-                  <Text fontSize="17">Day: </Text>
-                  <Text fontSize="17" ml="1" fontWeight="600" color="orange">{perDay}</Text>
+                  <Text fontSize="17">Title: </Text>
+                  <Text fontSize="15" ml="1" fontWeight="600" color="orange">{subtitle.substring(0, 20)}</Text>
                  </Flex>
-                 <Text mt="3" fontSize="18" fontWeight="600" color="gray">{challenge}</Text>
+                 <Flex>
+                  <Text fontSize="17">Calories: </Text>
+                  <Text fontSize="17" ml="1" fontWeight="600" color="orange">{calories}</Text>
+                 </Flex>
+                 <Text mt="3" fontSize="17" fontWeight="600" color="gray">{primaryvalue}</Text>
                  <Flex mt="4">
                   <Text fontSize="16">For more info:</Text>
                    <Text fontSize="17" ml="1" fontWeight="600" color="blue"><a target="blank" href={link}>Click</a></Text> 

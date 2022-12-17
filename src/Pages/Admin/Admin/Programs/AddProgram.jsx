@@ -15,6 +15,8 @@ import {
     Flex,
   } from '@chakra-ui/react'
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addProgram } from '../../../../Redux/Programs/programs.action';
 
   
 function AddProgram() {
@@ -31,6 +33,7 @@ function AddProgram() {
 
   const [formstate, setFormstate] = useState(initialState);
   const toast = useToast();
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,27 +49,29 @@ function AddProgram() {
  function handleSubmit(e){
   
     e.preventDefault();
-    // dispatch(login(formstate));
-    console.log(formstate);
 
     toast({
-      title: 'Login Successfully',
+      title: 'Added Successfully',
       status: 'success',
       duration: 1000,
       isClosable: true,
     })
-    setFormstate(initialState);
+    dispatch(addProgram(formstate));
+
+    // setFormstate(initialState);
     onClose()
  }
+   
+
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
       <>
-        <Button onClick={onOpen} colorScheme='telegram' mr="20">Add Program</Button>
+        <Button onClick={onOpen} colorScheme='telegram' mr="20">Add any Program</Button>
   
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader color="teal">Add any Program</ModalHeader>
+            <ModalHeader color="teal">Add a Program</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
             <form onSubmit={(e)=>handleSubmit(e)}>
@@ -87,7 +92,7 @@ function AddProgram() {
 
               <Flex justifyContent="space-between">
                    <Input  type="submit" _hover={{cursor:"pointer"}}  bg="twitter.600" mt="10"  color="white" placeholder='Submit form' />
-                   <Button ml="2"  mt="10" colorScheme='red'  onClick={onClose}>Close</Button>
+                   <Button ml="2"  mt="10" colorScheme='red' >Close</Button>
               </Flex>
             </FormControl>
       </form>
