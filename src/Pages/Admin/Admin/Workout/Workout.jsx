@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { Box, Button,  Checkbox,  Flex, Heading, Input, Stack, Text, useToast} from '@chakra-ui/react'
 import AllCards from './AllCards';
 import AddWorkout from './AddWorkout';
 import Navbar from '../Navbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { workoutAction } from '../../../../Redux/Workout/workout.action';
+import axios from 'axios';
 
 
 const Workout = () => {
     const toast = useToast();
+    const [data, setData] = useState([])
+
+    async function getData(){
+      let res = await axios.get("https://fithub.onrender.com/products?category=workout");
+      setData(res.data)
+    }
+   
+   useEffect(()=>{
+    getData()
+   },[])
+
 
     function alreadyPage(){
         toast({
@@ -43,11 +57,11 @@ const Workout = () => {
         <Flex justifyContent="space-between" mb="5" mt="5">
         <Flex>
           <Text fontSize="20" color="gray" fontWeight="600" >Total Workout: </Text>
-          <Text ml="5" fontSize="23" fontWeight="700">20</Text>
+          <Text ml="5" fontSize="23" fontWeight="700"> {data.length} </Text>
         </Flex>
         <AddWorkout />
       </Flex>
-            <AllCards />
+            <AllCards  />
         </Box>
     </Flex>
     </Box>

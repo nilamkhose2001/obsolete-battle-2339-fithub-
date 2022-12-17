@@ -15,6 +15,8 @@ import {
     Flex,
   } from '@chakra-ui/react'
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addWorkout } from '../../../../Redux/Workout/workout.action';
 
   
 function AddWorkout() {
@@ -35,6 +37,7 @@ function AddWorkout() {
 
   const [formstate, setFormstate] = useState(initialState);
   const toast = useToast();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,7 +53,7 @@ function AddWorkout() {
  function handleSubmit(e){
   
     e.preventDefault();
-    // dispatch(login(formstate));
+    
     console.log(formstate);
 
     toast({
@@ -59,6 +62,7 @@ function AddWorkout() {
       duration: 1000,
       isClosable: true,
     })
+    dispatch(addWorkout(formstate));
     onClose()
     setFormstate(initialState)
  }
@@ -70,7 +74,7 @@ function AddWorkout() {
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader color="teal">Add any Workout</ModalHeader>
+            <ModalHeader color="teal">Add a Workout</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
             <form onSubmit={(e)=>handleSubmit(e)}>
@@ -85,8 +89,6 @@ function AddWorkout() {
               <Input mt="5"  placeholder='Duration' borderBottom="2px solid orange" value={formstate.week} onChange={handleChange} type="string" name="week" />
               <Input mt="5"  placeholder='Price' borderBottom="2px solid orange" value={formstate.price} onChange={handleChange} type="string" name="price" />
 
-            
-          
               <Flex justifyContent="space-between">
                    <Input  type="submit" _hover={{cursor:"pointer"}}  bg="twitter.600" mt="5"  color="white" placeholder='Submit form' />
                    <Button ml="2"  mt="5" colorScheme='red'  onClick={onClose}>Close</Button>

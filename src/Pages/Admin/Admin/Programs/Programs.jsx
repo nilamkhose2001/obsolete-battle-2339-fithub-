@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Box, Button, Flex, Text, useToast} from '@chakra-ui/react'
 import AddProgram from './AddProgram';
 import AllCards from './AllCards';
 import Navbar from '../Navbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { getWorkoutPrograms } from '../../../../Redux/Programs/programs.action';
+import { useState } from 'react';
+import axios from 'axios';
 
 
 const Programs = () => {
     const toast = useToast();
+    const [data, setData] = useState([])
+
+    async function getData(){
+      let res = await axios.get("https://fithub.onrender.com/products?category=program");
+      setData(res.data)
+    }
+   
+    
+
+
+   useEffect(()=>{
+    getData()
+   },[])
+
+   function changeFun(){}
 
     function alreadyPage(){
         toast({
@@ -44,11 +63,11 @@ const Programs = () => {
         <Flex justifyContent="space-between" mb="5" mt="5">
         <Flex>
           <Text fontSize="20" color="gray" fontWeight="600" >Total Programs: </Text>
-          <Text ml="5" fontSize="23" fontWeight="700">20</Text>
+          <Text ml="5" fontSize="23" fontWeight="700">{data.length}</Text>
         </Flex>
         <AddProgram />
       </Flex>
-            <AllCards />
+            <AllCards changeFun={changeFun} />
         </Box>
     </Flex>
     </Box>
