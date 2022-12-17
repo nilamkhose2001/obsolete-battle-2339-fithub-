@@ -8,10 +8,11 @@ import { useEffect } from "react";
 import { getWorkoutPrograms } from "../../Redux/Programs/programs.action";
 
 export default function WorkoutProgramsPage() {
-  const workoutProgramData = useSelector((store) => store.programs.programData);
+  const workoutProgramData = useSelector(
+    (store) => store.programs.workoutProgramData
+  );
   const dispatch = useDispatch();
 
-  const result = "62";
   const optionsArray = [
     "Newest First",
     "Title",
@@ -36,7 +37,12 @@ export default function WorkoutProgramsPage() {
       {/* content  */}
       <Box bg="#F0F4F6">
         {/* result and sort */}
-        <ResultAndSortOptions result={result} options={optionsArray} />
+        {workoutProgramData.length !== 0 && (
+          <ResultAndSortOptions
+            result={workoutProgramData.length}
+            options={optionsArray}
+          />
+        )}
         {/* workout programs  */}
         <Flex px="2" pb="2" flexWrap="wrap" gap="1" justifyContent="start">
           {/* <CardComponent /> */}
@@ -54,8 +60,6 @@ export default function WorkoutProgramsPage() {
           ))}
         </Flex>
       </Box>
-
-      {console.log(workoutProgramData)}
     </div>
   );
 }
