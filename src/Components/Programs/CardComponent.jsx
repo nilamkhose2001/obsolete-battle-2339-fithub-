@@ -28,6 +28,7 @@ export default function CardComponent({
   desc,
   subtitle,
   price,
+  isClicked
 }) {
   const [isSmallerThan700] = useMediaQuery("(max-width: 380px)");
 
@@ -56,7 +57,7 @@ export default function CardComponent({
           <Text fontWeight="semibold">{price}</Text>
         </Box>
         <Box>
-          <Button bg="#4296CB" color="white" height="100%">
+          <Button bg="#4296CB" color="white" height="100%" onClick={isClicked}>
             <span style={{ width: "25px", height: "30px" }}>
               <BiShoppingBag size="100%" />
             </span>
