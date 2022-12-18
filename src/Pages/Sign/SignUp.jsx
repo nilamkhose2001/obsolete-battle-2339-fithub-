@@ -6,7 +6,7 @@ import { Box, Button,  Checkbox,  Flex, Heading, Input, InputGroup, InputRightEl
 import Captcha from './Captcha';
 import { signup } from "../../Redux/auth/auth.action";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const initialState = {
@@ -119,7 +119,7 @@ const SignUp = () => {
           <Button w="35%" colorScheme='twitter' onClick={print}> Join </Button>
     </Box>
 
-    <Text fontSize="20" display="inline">Already a member? <Text display="inline" color="blue.400">Sign In</Text> </Text>
+    <Text fontSize="20" display="inline">Already a member? <Link to='/signin' display="inline" color="blue.400">Sign In</Link> </Text>
     
         
 

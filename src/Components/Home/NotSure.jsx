@@ -1,23 +1,29 @@
 import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import axios from "axios";
 
 const NotSure = () => {
   const [data1, setData1] = useState([]);
 
   const getdata = async () => {
-    let res = await fetch(
-      "https://fithub.onrender.com/products?category=program"
-    );
+    try{
+      let res = await axios.get(
+        "https://fithub.onrender.com/products?category=program"
+      );
+      setData1(res.data.product)
+      console.log(res.data);
+       
+    }catch(e){
+      console.log(e);
+    }
+   
 
-    let data = await res.json();
-    setData1(data);
   };
   useEffect(() => {
     getdata();
   }, []);
 
-  console.log(data1);
 
   return (
     <Box w="100%" h="auto" background={"#F0F4F6"} py={20}>
@@ -34,9 +40,9 @@ const NotSure = () => {
           gap={"5px"}
           columns={{ lg: 4, md: 3, sm: 2, base: 1 }}
         >
-          {data1.slice(0, 4).map((el) => {
-            return <Card />;
-          })}
+           {data1?.slice(0, 4).map((el,i) => {
+            return <Card key={i} />;
+          })} 
         </SimpleGrid>
       </Box>
     </Box>

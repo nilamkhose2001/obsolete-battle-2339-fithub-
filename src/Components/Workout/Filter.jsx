@@ -232,7 +232,9 @@ export const Filter = () => {
             <Button isLoading border="none" m="auto"></Button>
           </div>
         )}
-
+        {
+          WorkoutData.length==0?<h2 style={{textAlign:'center'}}>Related Data not found</h2>:""
+        }
         <SimpleGrid columns={[1, 2, 3, 4]} spacing="10px">
           {WorkoutData?.map((el, i) => (
             <Box bg="white" height="230px" key={i}>

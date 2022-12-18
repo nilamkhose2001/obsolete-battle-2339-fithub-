@@ -9,12 +9,14 @@ import { workoutReducer } from "./Workout/workout.reducer"
 
 import thunk from "redux-thunk";
 import { programsReducer } from "./Programs/programs.reducer";
+import { cartReducer } from "./Cart/cart.reducer";
 //console.log(feedReducer)
 
 const rootReducer = combineReducers({
   auth: authReducer,
   programs: programsReducer,
-        workout:workoutReducer
+        workout:workoutReducer,
+        cart: cartReducer,
     }
     )
 

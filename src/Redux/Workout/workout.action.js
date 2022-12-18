@@ -22,7 +22,7 @@ export const addWorkout = (data) => async (dispatch) => {
         body: JSON.stringify(data),
         method: "POST",
         headers: {
-          token: localStorage.getItem("token"),
+          token: localStorage.getItem("userToken"),
           "Content-Type": "application/json",
         },
       });
@@ -45,7 +45,7 @@ export const addWorkout = (data) => async (dispatch) => {
       await fetch(`https://fithub.onrender.com/products/${id}`, {
         method: "DELETE",
         headers: {
-          token: localStorage.getItem("token"),
+          token: localStorage.getItem("userToken"),
           "Content-Type": "application/json",
         },
       });
@@ -68,7 +68,7 @@ export const addWorkout = (data) => async (dispatch) => {
         body: JSON.stringify(data),
         method: "PATCH",
         headers: {
-          token: localStorage.getItem("token"),
+          token: localStorage.getItem("userToken"),
           "Content-Type": "application/json",
         },
       });

@@ -9,7 +9,7 @@ export const login =(creds)=>async(dispatch)=>{
         console.log(res);
         dispatch({type: AUTH_LOGIN_SUCCESS, payload:res.data.token})
         if(res.data.token){
-            localStorage.setItem("userToken",JSON.stringify(res.data.token));
+            localStorage.setItem("token",res.data.token);
         }
         return res.data;
     }
@@ -20,7 +20,7 @@ export const login =(creds)=>async(dispatch)=>{
 };
 
 export const logout = () => async (dispatch) => {
-    localStorage.removeItem("userToken");
+    localStorage.removeItem("token");
     dispatch({type: AUTH_LOGOUT});
 }
 

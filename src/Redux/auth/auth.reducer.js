@@ -8,7 +8,7 @@ import {
   AUTH_SIGNUP_SUCCESS,
 } from "./auth.types";
 
-let token = localStorage.getItem("userToken") || "";
+let token = localStorage.getItem("token") || "";
 console.log(token);
 
 let initState = {

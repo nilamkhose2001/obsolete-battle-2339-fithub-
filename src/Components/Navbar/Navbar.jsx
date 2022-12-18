@@ -5,7 +5,8 @@ import { Box, Container, Flex, Image,Menu,
   MenuItemOption,
   MenuGroup,
   MenuOptionGroup,
-  MenuDivider,} from "@chakra-ui/react";
+  MenuDivider,IconButton} from "@chakra-ui/react";
+import {HamburgerIcon,AddIcon,ExternalLinkIcon,RepeatIcon,EditIcon,ChevronDownIcon} from "@chakra-ui/icons";
 import logo from "../../Media/Fithub.png";
 import workoutVideo from "../../Media/workout-video.png"
 import customWorkout from "../../Media/custom-workouts.png"
@@ -55,8 +56,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <Container style={stikc} maxW="100%" bg="" p={0} className={styles.filterCont} borderBottom='1px solid #F0F4F6'>
-        <Container maxW="100%" bg="white" m={0} className={styles.filterCont}>
+      <Container style={stikc} maxW="100%" bg="" p={0} className={styles.filterCont} borderBottom='1px solid #F0F4F6' >
+        <Container maxW="100%" bg="white" m={0} className={styles.filterCont} display={['none','none','block','block']}>
           <Flex
             justifyContent="space-around"
             alignItems="center"
@@ -86,9 +87,7 @@ export const Navbar = () => {
                 MY FITNESS
               </Link>
             </Box>
-            <Box>
-              <AiOutlineSearch style={{ fontSize: "17px" }} />
-            </Box>
+            
             <Box>
               <Link to='/cart'>
               <BsBag style={{ fontSize: "17px" }} />
@@ -151,8 +150,9 @@ export const Navbar = () => {
 
 
 {/* hamerberge */}
-{/* <Container maxW="100%" bg="white" m={0}>
-  <Flex ml={4}>
+
+<Container maxW="100%" bg="white" m={0} display={['visible','visible','none','none']}>
+  <Flex ml={4}  justifyContent='space-around' alignItems='center'>
   <Link to="/">
               <Box className={styles.box} h="80px">
                 <Image w="60px" src={logo}></Image>
@@ -164,26 +164,46 @@ export const Navbar = () => {
   <MenuButton
     as={IconButton}
     aria-label='Options'
-    icon={<HamburgerIcon />}
+    icon={<HamburgerIcon  color='#2EB0C7' />}
     variant='outline'
+    border='2px solid #2EB0C7'
   />
   <MenuList>
-    <MenuItem icon={<AddIcon />} command='⌘T'>
-      New Tab
+    <MenuItem  >
+    <Link  to='/workoutvideo'>
+      Workout
+    </Link>
+   
     </MenuItem>
-    <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
-      New Window
+    <MenuItem  >
+      <Link  to='/workoutprogram'>
+      Workout Programs
+    </Link>
     </MenuItem>
-    <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
-      Open Closed Tab
+    <MenuItem  >
+      <Link  to='/mealplans'>
+      Meal Plans
+    </Link>
     </MenuItem>
-    <MenuItem icon={<EditIcon />} command='⌘O'>
-      Open File...
+    <MenuItem >
+      <Link  to='/pilotprograms'>
+      Pilot Programs
+    </Link>
+    </MenuItem>
+    <MenuItem >
+      <Link  to='/cart'>
+      Cart
+    </Link>
+    </MenuItem>
+    <MenuItem >
+      <Link  to='/signup'>
+      Signup
+    </Link>
     </MenuItem>
   </MenuList>
 </Menu>
   </Flex>
-</Container> */}
+</Container>
 
       </Container>
     </>
