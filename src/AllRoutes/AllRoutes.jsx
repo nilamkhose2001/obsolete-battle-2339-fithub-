@@ -14,6 +14,10 @@ import SignIn from "../Pages/Sign/SignIn";
 import SignUp from "../Pages/Sign/SignUp";
 
 import { SingleProduct } from "../Pages/Workout/SingleProduct";
+import { Cart } from "../Pages/Cart/Cart";
+import Checkout from "../Pages/Checkout/Checkout";
+import Success from "../Pages/Checkout/Success";
+import {Workout} from "../Pages/Workout/Workout";
 //import { Workout } from "../Pages/Workout/Workout";
 
 export const AllRoutes = () => {
@@ -22,22 +26,19 @@ export const AllRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/signin" element={<SignIn/>} />
-      <Route path="/cart" element={<h1>CArt</h1>} />
+      <Route path="/cart" element={<Cart/>} />
       <Route path="/workoutprogram" element={<WorkoutProgramsPage />} />
       <Route path="/workoutprogram/:id" element={<SingleProgram />} />
       <Route path="/mealplans" element={<MealPlansPage />} />
       <Route path="/pilotprograms" element={<PilotProgramsPage />} />
-      <Route path="/customworkout" element={<h1>Custom workout</h1>}/>
-      <Route path="/routines" element={<h1>Routines</h1>}/>
       <Route path="/workoutvideo/:id" element={<SingleProduct/>}></Route>
+      <Route path="/workoutvideo" element={<Workout/>}></Route>
       <Route path="/admin-dashboard" element={<Admin />} />
       <Route path="/admin-programs" element={<AdminPrograms />} />
       <Route path="/admin-workout" element={<AdminWorkout />} />
-      <Route path="/customworkout" element={<h1>Custom workout</h1>} />
-      <Route path="/routines" element={<h1>Routines</h1>} />
-      <Route path="/workoutvideo/:id" element={<SingleProduct />}></Route>
 
-
+      <Route path="/checkout" element={<Checkout/>}></Route>
+      <Route path="/success" element={<Success />}></Route>
     </Routes>
   );
 };

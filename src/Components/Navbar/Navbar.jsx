@@ -17,13 +17,16 @@ import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineCaretDown } from "react-icons/ai";
 import { BsBag } from "react-icons/bs";
-import { BiChevronDown } from "react-icons/bi";
+import { GrUserAdmin } from "react-icons/gr";
 import { useState } from "react";
+import { isExpired, decodeToken } from "react-jwt";
 
 export const Navbar = () => {
     const [program,setProgram]=useState(false)
     const [workout,setWorkout]=useState(false)
-
+    const token=localStorage.getItem("token")
+    const myDecodedToken = decodeToken(token);
+    console.log(myDecodedToken)
     const handlehover1=()=>{
         setProgram(false)
         if(workout==false)
@@ -93,6 +96,12 @@ export const Navbar = () => {
               <BsBag style={{ fontSize: "17px" }} />
               </Link>
             </Box>
+            {myDecodedToken.role==='admin'?<Box>
+             <Link to='/admin-dashboard'>
+              <GrUserAdmin style={{'fontSize':'20px'}}/>
+             </Link>
+             </Box>:null}
+            
           </Flex>
         </Container>
 {
@@ -144,6 +153,7 @@ export const Navbar = () => {
                 <Image m='auto' mb={2} src={customWorkout} w='40%' h='50px'></Image>
                     ROUTINES
                 </Link>
+                
                 </Container>
         </Container>
 }
@@ -200,6 +210,11 @@ export const Navbar = () => {
       Signup
     </Link>
     </MenuItem>
+    {myDecodedToken.role==='admin'?<MenuItem>
+              <Link to='/admin-dashboard'>
+              Admin
+             </Link>
+             </MenuItem>:null}
   </MenuList>
 </Menu>
   </Flex>

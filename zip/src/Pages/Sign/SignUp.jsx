@@ -4,9 +4,6 @@ import { BsGoogle } from 'react-icons/bs';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { Box, Button,  Checkbox,  Flex, Heading, Input, InputGroup, InputRightElement, Stack, Text, VStack } from '@chakra-ui/react'
 import Captcha from './Captcha';
-import { signup } from "../../Redux/auth/auth.action";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const initialState = {
@@ -20,9 +17,6 @@ const SignUp = () => {
 
   const [formstate, setFormstate] = useState(initialState);
   const [show, setShow] = useState(false);
-  const dispatch = useDispatch();
-  const {userRegister} = useSelector((store)=> store.auth)
-  const navigate= useNavigate();
   
   const handleClickPassword = () => setShow(!show)
 
@@ -37,12 +31,9 @@ const SignUp = () => {
   };
 
   function print(){
-    console.log(formstate);
-    dispatch(signup(formstate));
-    alert("Sign Up Successfully")
-    navigate('/signin')
+    console.log(formstate)
   }
-  console.log(userRegister);
+ 
 
   return (
   <Box w="50%" m="auto">
@@ -122,7 +113,7 @@ const SignUp = () => {
           <Button w="35%" colorScheme='twitter' onClick={print}> Join </Button>
     </Box>
 
-    <Text fontSize="20" display="inline">Already a member? <Link to='/signin' display="inline" color="blue.400">Sign In</Link> </Text>
+    <Text fontSize="20" display="inline">Already a member? <Text display="inline" color="blue.400">Sign In</Text> </Text>
     
         
 

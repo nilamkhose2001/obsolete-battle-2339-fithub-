@@ -14,31 +14,7 @@ export const addCart = (product) => async (dispatch) => {
     });
     const data = await res.json();
 
-    // let response = await axios.post(
-    //   `https://fithub.onrender.com/carts`,
-    //   {
-    //     body: JSON.stringify({ product: prodID }),
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //         token:token
-    //       }
-    //   }
-    // );
-
-    // const response = await fetch(
-    //   "https://fithub.onrender.com/carts",
-    //   {
-    //     body: JSON.stringify({ product: prodID }),
-    //     method: "POST",
-    //   },
-    //   {
-    //     headers: {
-    //       token: localStorage.getItem("userToken"),
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
-    // );
-    //let data = await response.json();
+    
 
     dispatch({ type: ADD_TO_CART, payload: data });
   } catch (e) {

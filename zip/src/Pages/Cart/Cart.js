@@ -29,46 +29,30 @@ import {
 } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import EgiftForm from "./gift/EgiftForm";
-import { useSelector,useDispatch } from "react-redux";
-import { getCart, removeCartItem } from "../../Redux/Cart/cart.action";
-let total=0;
+import { deleteCartItem, getCartArrayData } from "./api/cartSlice";
+import { Link } from "react-router-dom";
 
 
-export const Cart=()=>{
-    const cart=useSelector(store=>store.cart.data)
-    const dispatch=useDispatch()
+
+const Cart = () => {
+    const { cart } = useSelector((state) => state);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCartArrayData());
+    }, []);
 
 
-    useEffect(()=>{
-        dispatch(getCart())
-    },[])
 
 
-    if(cart.length>0)
-    {
-        total=cart&&cart.reduce((acc,el)=>{
-            //total=total+Number(el.product.price.split("$")[1])
-            console.log(el.product.price)
-            if(el.product.price!=undefined)
-            {
-                return acc+Number(el.product.price.split("$")[1])
-
-            }
-        },0)
-    }
-    
-
-
-    console.log("t",total)
-    console.log(cart)
-    
-
-    return <>
-         <Container maxW={"100%"} marginBottom="2em" p={"0"}>
+    return (
+        <>
+            <Container maxW={"100%"} marginBottom="2em" p={"0"}>
                 <Center m="0" p="0">
-                    {cart?.length ? (
+                    {cart.cart.length ? (
                         <Container maxW={"100%"} m="0" p={"0"}>
                             <Box
                                 maxW={"80%"}
@@ -93,26 +77,26 @@ export const Cart=()=>{
                                         </Thead>
 
                                         <Tbody>
-                                            {cart?.map((el, ind) => (
+                                            {cart.cart.map((el, ind) => (
                                                 <Tr borderBottom="1px solid lightgrey" key={ind + 1}>
                                                     <Td>
                                                         <Flex alignItems={"flex-start"}>
                                                             <HStack w={{ base: "100px", md: "130px" }}>
                                                                 <img
-                                                                    src={el.product.image}
+                                                                    src={el.image}
                                                                     alt="passes"
                                                                     width={"100%"}
                                                                 />
                                                             </HStack>
-                                                            {el.product.title !== undefined ? (
+                                                            {el.para !== undefined ? (
                                                                 <Stack p="2">
-                                                                    <Text fontSize={"12px"} color={"#7b7f92"}>{el.product.title.toUpperCase() ||el.product.desc  }</Text>
+                                                                    <Text fontSize={"12px"} color={"#7b7f92"}>{el.para.toUpperCase()}</Text>
                                                                     <Text
                                                                         textTransform={"capitalize"}
                                                                         fontWeight="600"
                                                                         fontSize={"16px"}
                                                                     >
-                                                                        {`${el.product.subtitle||el.product.catagory}`}
+                                                                        {`${el.day}-Day Pass`}
                                                                     </Text>
                                                                     <Text> Purchase:</Text>
                                                                     <Accordion display={"flex"}>
@@ -152,7 +136,7 @@ export const Cart=()=>{
                                                                     <Text fontSize={"12px"} color={"#7b7f92"}>GIFT CARD</Text>
                                                                     <Text
                                                                         fontWeight={"600"}
-                                                                    >{`$${el.product.price} eGift Card`}</Text>
+                                                                    >{`$${el.price} eGift Card`}</Text>
                                                                     <Text> Purchase:</Text>
                                                                     <Accordion display={"flex"}>
                                                                         <AccordionItem>
@@ -194,10 +178,10 @@ export const Cart=()=>{
                                                     <Td>
                                                         <CloseIcon
                                                             cursor={"pointer"}
-                                                            onClick={() => dispatch(removeCartItem(el._id))}
+                                                            onClick={() => dispatch(deleteCartItem(ind))}
                                                         />
                                                     </Td>
-                                                    <Td fontWeight="600">{`$${el.product.price}`}</Td>
+                                                    <Td fontWeight="600">{`$${el.price.toFixed(2)}`}</Td>
                                                 </Tr>
                                             ))}
                                         </Tbody>
@@ -216,7 +200,7 @@ export const Cart=()=>{
                                                     fontSize={"1.5em"}
                                                     fontFamily="heading"
                                                     color={"black"}
-                                                >{`$${total}`}</Th>
+                                                >{`$${cart.totalSum.toFixed(2)}`}</Th>
                                             </Tr>
                                         </Tfoot>
                                     </Table>
@@ -263,7 +247,7 @@ export const Cart=()=>{
                                                 "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                                         }}
                                     >
-                                        <Link to="/checkout">  PROCEED TO CHECKOUT    </Link>
+                                        <Link to="/billing">  PROCEED TO CHECKOUT    </Link>
                                     </Button>
 
 
@@ -354,6 +338,8 @@ export const Cart=()=>{
                     )}
                 </Center>
             </Container>
+        </>
+    );
+};
 
-    </>
-}
+export default Cart;

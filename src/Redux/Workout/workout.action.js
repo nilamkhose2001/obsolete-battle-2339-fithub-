@@ -34,7 +34,7 @@ export const addWorkout = (data) => async (dispatch) => {
         body: JSON.stringify(data),
         method: "POST",
         headers: {
-          token: localStorage.getItem("userToken"),
+          token: localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
       });
@@ -57,7 +57,7 @@ export const addWorkout = (data) => async (dispatch) => {
       await fetch(`https://fithub.onrender.com/products/${id}`, {
         method: "DELETE",
         headers: {
-          token: localStorage.getItem("userToken"),
+          token: localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
       });
@@ -76,16 +76,16 @@ export const addWorkout = (data) => async (dispatch) => {
     try {
       dispatch({ type: UPDATE_WORKOUT_REQUEST });
   
-      await fetch(`https://fithub.onrender.com/products/${id}`, {
+     let response= await fetch(`https://fithub.onrender.com/products/${id}`, {
         body: JSON.stringify(data),
         method: "PATCH",
         headers: {
-          token: localStorage.getItem("userToken"),
+          token: localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
       });
-       
-      dispatch({ type: UPDATE_WORKOUT_SUCCESS , payload: data });
+       let data1= await response.json()
+      dispatch({ type: UPDATE_WORKOUT_SUCCESS , payload: data1 });
     
     } catch (error) {
       dispatch({
