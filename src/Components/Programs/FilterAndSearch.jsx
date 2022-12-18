@@ -6,7 +6,7 @@ export default function FilterAndSearch() {
   return (
     <>
       {/* filter and search  */}
-      <hr />
+      {/* <hr />
       <Flex alignItems="center" px="10">
         <Box
           display="flex"
@@ -31,7 +31,7 @@ export default function FilterAndSearch() {
           <Text>SEARCH</Text>
         </Box>
       </Flex>
-      <hr />
+      <hr /> */}
     </>
   );
 }
