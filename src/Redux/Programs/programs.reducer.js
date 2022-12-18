@@ -11,6 +11,7 @@ import {
   UPDATE_PROGRAM_REQUEST,
   UPDATE_PROGRAM_SUCCESS,
   UPDATE_PROGRAM_FAILURE,
+  GET_PROGRAM_PLANS,
 } from "../Programs/programs.actionTypes";
 
 
@@ -19,6 +20,7 @@ const initState = {
   workoutProgramData: [],
   pilotProgramData: [],
   mealPlansData: [],
+  programData: [] ,
   AddProgram: { loading: false, error: false },  DeleteProgram: { loading: false, error: false },  UpdateProgram: { loading: false, error: false }
 };
 
@@ -36,6 +38,13 @@ export const programsReducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         mealPlansData: payload,
+      };
+    }
+
+    case GET_PROGRAM_PLANS: {
+      return {
+        ...state,
+        programData: payload,
       };
     }
 

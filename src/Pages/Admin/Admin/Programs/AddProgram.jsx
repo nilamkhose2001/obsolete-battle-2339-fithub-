@@ -49,6 +49,7 @@ function AddProgram() {
  function handleSubmit(e){
   
     e.preventDefault();
+    dispatch(addProgram(formstate));
 
     toast({
       title: 'Added Successfully',
@@ -56,9 +57,7 @@ function AddProgram() {
       duration: 1000,
       isClosable: true,
     })
-    dispatch(addProgram(formstate));
-
-    // setFormstate(initialState);
+  
     onClose()
  }
    

@@ -57,14 +57,14 @@ function AddWorkout() {
     console.log(formstate);
 
     toast({
-      title: 'Login Successfully',
+      title: 'Added Successfully',
       status: 'success',
       duration: 1000,
       isClosable: true,
     })
     dispatch(addWorkout(formstate));
     onClose()
-    setFormstate(initialState)
+
  }
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (

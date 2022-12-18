@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_WORKOUT_FAILURE, ADD_WORKOUT_REQUEST, ADD_WORKOUT_SUCCESS, DELETE_WORKOUT_FAILURE, DELETE_WORKOUT_REQUEST, DELETE_WORKOUT_SUCCESS, GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, UPDATE_WORKOUT_FAILURE, UPDATE_WORKOUT_REQUEST, UPDATE_WORKOUT_SUCCESS } from "./workout.actionType"
+import { ADD_WORKOUT_FAILURE, ADD_WORKOUT_REQUEST, ADD_WORKOUT_SUCCESS, DELETE_WORKOUT_FAILURE, DELETE_WORKOUT_REQUEST, DELETE_WORKOUT_SUCCESS, GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, GET_WORKOUT_ERROR, GET_WORKOUT_LOADING, GET_WORKOUT_SUCCESS, UPDATE_WORKOUT_FAILURE, UPDATE_WORKOUT_REQUEST, UPDATE_WORKOUT_SUCCESS } from "./workout.actionType"
 
 export const workoutAction=(url)=>async(dispatch)=>{
     dispatch({type:GET_DATA_LOADING})
@@ -11,6 +11,18 @@ export const workoutAction=(url)=>async(dispatch)=>{
     }catch(e){
         dispatch({type:GET_DATA_ERROR})
     }
+}
+
+export const getWorkout =(url)=>async(dispatch)=>{
+  dispatch({type:GET_WORKOUT_LOADING})
+  try{
+      const response=await axios.get(url)
+
+      dispatch({type:GET_WORKOUT_SUCCESS ,payload:response.data.product})
+
+  }catch(e){
+      dispatch({type:GET_WORKOUT_ERROR })
+  }
 }
 
 export const addWorkout = (data) => async (dispatch) => {

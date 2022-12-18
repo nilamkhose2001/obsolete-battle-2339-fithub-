@@ -4,27 +4,36 @@ import  Card  from "./Card"
 import axios from "axios";
 import Pagination from "./Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import { workoutAction } from "../../../../Redux/Workout/workout.action";
+import { getWorkout, workoutAction } from "../../../../Redux/Workout/workout.action";
+import SpinnerLoading from "./SpinneLoading";
 
 
 const AllCards = () => {
 
-  const {data} = useSelector((store) => store.workout);
   const [ page, setPage] = useState(1);
   const dispatch = useDispatch();
+  const [updateToggle, setUpdateToggle] = useState(false);
+    const data =useSelector(store=>store.workout.WorkoutAdminData)
 
-  const {WorkoutLoading,WorkoutError,WorkoutData}=useSelector(store=>store.workout)
- console.log(WorkoutData);
+
+function UpdateChange(){
+    setUpdateToggle(!updateToggle)
+  }
+  
   useEffect(()=>{
-   dispatch(workoutAction(`https://fithub.onrender.com/products?category=workout&page=${page}&limit=8`));
- },[page])
+   dispatch(getWorkout(`https://fithub.onrender.com/products?category=workout&page=${page}&limit=10`));
+ },[page,data.length,updateToggle]);
+
 
     return (
       <Box>
+      {data.length==0?<SpinnerLoading />:"" }
+      <Box>
       <SimpleGrid columns={[1,2,3]} spacing={10}>
-        {WorkoutData.map((item,index) => <Card key={index}  id={item._id} trainingtype={item.trainingtype} link={item.cardcontenthref} price={item.price} primaryvalue={item.primaryvalue} title={item.title} subtitle={item.subtitle} img={item.image} calories={item.calories} />)}
+        {data.map((item,index) => <Card key={index}  id={item._id}  UpdateChange={UpdateChange} trainingtype={item.trainingtype} link={item.cardcontenthref} price={item.price} primaryvalue={item.primaryvalue} title={item.title} subtitle={item.subtitle} img={item.image} calories={item.calories} />)}
       </SimpleGrid>
-      <Pagination total={10} current={page} onChange={(value)=>setPage(value)} />
+       {data.length!=0?<Pagination total={15} current={page} onChange={(value)=>setPage(value)} />:"" }
+      </Box>
       </Box>
     )
   }

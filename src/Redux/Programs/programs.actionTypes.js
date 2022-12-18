@@ -2,6 +2,8 @@ export const GET_WORKOUT_PLANS = "programs/workoutplans";
 export const GET_MEAL_PLANS = "programs/mealplans";
 export const GET_PILOT_PROGRAMS = "programs/pilotprograms";
 
+export const GET_PROGRAM_PLANS = "programs/PROGRAM_PLANS" ;
+
 
 export const DELETE_PROGRAM_REQUEST = 'programs/DELETE_PROGRAM_REQUEST';
 export const DELETE_PROGRAM_SUCCESS = 'programs/DELETE_PROGRAM_SUCCESS';
