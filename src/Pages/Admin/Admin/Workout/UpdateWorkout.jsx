@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux';
 import { updateWorkout } from '../../../../Redux/Workout/workout.action';
 
   
-function UpdateWorkout({ id,img,title,subtitle,price, primaryvalue,link,calories,trainingtype}) {
+function UpdateWorkout({ id,img,title,subtitle,price, primaryvalue,link,calories,trainingtype,UpdateChange}) {
 
   const initialState = {
     img : img,
@@ -56,11 +56,12 @@ function UpdateWorkout({ id,img,title,subtitle,price, primaryvalue,link,calories
     dispatch(updateWorkout(id,formstate))
 
     toast({
-      title: 'Login Successfully',
+      title: 'Updated Successfully',
       status: 'success',
       duration: 1000,
       isClosable: true,
     })
+    UpdateChange();
     onClose()
  }
     const { isOpen, onOpen, onClose } = useDisclosure()

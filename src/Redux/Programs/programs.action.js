@@ -12,6 +12,7 @@ import {
   UPDATE_PROGRAM_REQUEST,
   UPDATE_PROGRAM_SUCCESS,
   UPDATE_PROGRAM_FAILURE,
+  GET_PROGRAM_PLANS,
 } from "../Programs/programs.actionTypes";
 
 export const getWorkoutPrograms = () => async (dispatch) => {
@@ -24,6 +25,16 @@ export const getWorkoutPrograms = () => async (dispatch) => {
     payload: data,
   });
 };
+
+export const getPrograms = (url) => async (dispatch) => {
+  let res = await axios.get(url);
+  let data = await res.data.product;
+  dispatch({
+    type: GET_PROGRAM_PLANS ,
+    payload: data,
+  });
+};
+
 
 
 

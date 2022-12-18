@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux';
 import { updateProgram } from '../../../../Redux/Programs/programs.action';
 
   
-function UpdateProgram( { id,img,text,exclusive,price,challenge,perDay,link,change } ) {
+function UpdateProgram( { id,img,text,exclusive,price,challenge,perDay,link,UpdateChange } ) {
 
   const initialState = {
     image : img,
@@ -53,19 +53,18 @@ function UpdateProgram( { id,img,text,exclusive,price,challenge,perDay,link,chan
   
     e.preventDefault();
  
+     dispatch(updateProgram(id,formstate));
 
     toast({
-      title: 'Login Successfully',
+      title: 'Updated Successfully',
       status: 'success',
       duration: 1000,
       isClosable: true,
     })
-   
-     dispatch(updateProgram(id,formstate));
-
-    
-    
-    onClose()
+     
+  
+    UpdateChange();
+    onClose();
  }
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (

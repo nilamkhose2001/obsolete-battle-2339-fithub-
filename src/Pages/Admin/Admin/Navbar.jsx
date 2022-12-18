@@ -3,7 +3,6 @@ import {
   Box,
   Flex,
   Avatar,
-  Link,
   Button,
   Menu,
   MenuButton,
@@ -17,17 +16,17 @@ import {
   Center,
   Image,
 } from '@chakra-ui/react';
+import { Link } from "react-router-dom";
 
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box bg="gray.300" px={4}>
+      <Box bg="gray.400" px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Flex> <Image w="10%" src="https://pbs.twimg.com/profile_images/1491039844881125377/cSmikWrT_400x400.jpg" />  <Button ml="10" mt="2" colorScheme="teal" >Go to HomePage</Button></Flex>
+          <Flex> <Image w="10%" src="Fithub.png" />  <Button ml="10" mt="4" colorScheme="teal" > <Link to="/"> Go to HomePage </Link></Button></Flex>
          
-
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
              
