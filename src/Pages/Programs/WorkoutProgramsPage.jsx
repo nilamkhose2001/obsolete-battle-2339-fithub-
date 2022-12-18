@@ -11,10 +11,13 @@ import AddToBagModal from "../../Components/Programs/AddToBagModal";
 export default function WorkoutProgramsPage() {
   // const [isbtnclicked, setBtn] = useState(false);
   const [openModal, setModalStatus] = useState(false);
+  const [programData, setData] = useState({});
 
-  const clicked=()=>{
-    setModalStatus(true)
-  }
+  const clicked = (program) => {
+    setData(program);
+    setModalStatus(true);
+    console.log(program);
+  };
 
   const workoutProgramData = useSelector(
     (store) => store.programs.workoutProgramData
@@ -57,6 +60,7 @@ export default function WorkoutProgramsPage() {
           {workoutProgramData.map((program) => (
             <CardComponent
               key={program._id}
+              id={program._id}
               image={program.image}
               week={program.week}
               time={program.time}
@@ -65,11 +69,18 @@ export default function WorkoutProgramsPage() {
               contentshref={program.contentshref}
               exclusiveitem={program.exclusiveitem}
               isClicked={clicked}
+              programObj={program}
             />
           ))}
         </Flex>
       </Box>
-      <AddToBagModal openModal={openModal} setModalStatus={setModalStatus} />
+      {programData !== undefined ? (
+        <AddToBagModal
+          openModal={openModal}
+          setModalStatus={setModalStatus}
+          programData={programData}
+        />
+      ) : null}
     </div>
   );
 }
