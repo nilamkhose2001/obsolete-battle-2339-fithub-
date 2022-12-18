@@ -1,9 +1,12 @@
-import { ADD_WORKOUT_FAILURE, ADD_WORKOUT_REQUEST, ADD_WORKOUT_SUCCESS, DELETE_WORKOUT_FAILURE, DELETE_WORKOUT_REQUEST, DELETE_WORKOUT_SUCCESS, GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, UPDATE_WORKOUT_FAILURE, UPDATE_WORKOUT_REQUEST, UPDATE_WORKOUT_SUCCESS } from "./workout.actionType"
+import { ADD_WORKOUT_FAILURE, ADD_WORKOUT_REQUEST, ADD_WORKOUT_SUCCESS, DELETE_WORKOUT_FAILURE, DELETE_WORKOUT_REQUEST, DELETE_WORKOUT_SUCCESS, GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, GET_WORKOUT_ERROR, GET_WORKOUT_LOADING, GET_WORKOUT_SUCCESS, UPDATE_WORKOUT_FAILURE, UPDATE_WORKOUT_REQUEST, UPDATE_WORKOUT_SUCCESS } from "./workout.actionType"
 
 const initialDataState={
     WorkoutLoading:false,
     WorkoutError:false,
     WorkoutData:[],
+    WorkoutAdminData:[],
+    WorkoutAdminLoading:false,
+    WorkoutAdminError:false,
     AddWorkout: { loading: false, error: false },  DeleteWorkout: { loading: false, error: false }, UpdateWorkout : { loading: false, error: false }}
 
 export const workoutReducer=(state=initialDataState,action)=>{
@@ -11,6 +14,7 @@ export const workoutReducer=(state=initialDataState,action)=>{
         case GET_DATA_SUCCESS:{
             return {...state,WorkoutData:action.payload,WorkoutError:false,WorkoutLoading:false}
         }
+
         case GET_DATA_LOADING:{
             return {...state,WorkoutLoading:true,WorkoutError:false}
         }
@@ -18,7 +22,20 @@ export const workoutReducer=(state=initialDataState,action)=>{
             return {...state,WorkoutLoading:false,WorkoutError:true}
         }
 
-        case ADD_WORKOUT_REQUEST:
+
+        case GET_WORKOUT_LOADING :{
+          return {...state,WorkoutAdminLoading:true,WorkoutAdminError :false}
+       }
+
+      case GET_WORKOUT_SUCCESS :{
+        return {...state, WorkoutAdminData :action.payload,WorkoutAdminLoading :false,WorkoutAdminError:false}
+      }
+      case GET_WORKOUT_ERROR :{
+          return {...state,WorkoutAdminLoading:false,WorkoutAdminError:true}
+      }
+
+
+      case ADD_WORKOUT_REQUEST:
           return {
         ...state,
         AddWorkout: { loading: true, error: false },
@@ -27,7 +44,7 @@ export const workoutReducer=(state=initialDataState,action)=>{
       return {
         ...state,
         AddWorkout: { loading: false, error: false },
-        data: [...state.data, action.payload],
+        WorkoutAdminData: [...state.WorkoutAdminData, action.payload],
       };
 
       case ADD_WORKOUT_FAILURE:
@@ -46,7 +63,7 @@ export const workoutReducer=(state=initialDataState,action)=>{
       return {
         ...state,
         DeleteWorkout: { loading: false, error: false },
-        data: state.WorkoutData.filter((item) => item._id !== action.payload),
+        WorkoutAdminData : state.WorkoutAdminData.filter((item) => item._id !== action.payload),
       };
 
     case DELETE_WORKOUT_FAILURE:
@@ -64,7 +81,7 @@ export const workoutReducer=(state=initialDataState,action)=>{
         return {
           ...state,
           UpdateWorkout  : { loading: false, error: false },
-          WorkoutData : state.WorkoutData.map((item) =>
+          WorkoutAdminData : state.WorkoutAdminData.map((item) =>
             item._id === action.payload._id ? action.payload : item
           ),
         };

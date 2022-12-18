@@ -60,7 +60,7 @@ const QuickLook = ({ img,title,subtitle,price, primaryvalue,link,calories,traini
                  </Flex>
                  <Flex>
                   <Text fontSize="17">Title: </Text>
-                  <Text fontSize="15" ml="1" fontWeight="600" color="orange">{subtitle.substring(0, 20)}</Text>
+                  <Text fontSize="15" ml="1" fontWeight="600" color="orange">{subtitle}</Text>
                  </Flex>
                  <Flex>
                   <Text fontSize="17">Calories: </Text>

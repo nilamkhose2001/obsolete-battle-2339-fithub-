@@ -5,7 +5,7 @@ import { deleteProgram } from '../../../../Redux/Programs/programs.action'
 import QuickLook from './QuickLook'
 import UpdateProgram from './UpdateProgram'
 
-const Card = ({ id,img,text,exclusive,price,challenge,perDay,link, change }) => {
+const Card = ({ id,img,text,exclusive,price,challenge,perDay,link, UpdateChange }) => {
   const toast = useToast();
   // const data = useSelector((store) => store.programs.programData);
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Card = ({ id,img,text,exclusive,price,challenge,perDay,link, change }) => 
      
        <QuickLook price={price} perDay={perDay} link={link} challenge={challenge} exclusive={exclusive} text={text} img={img}/>
        
-       <Text fontSize="22" color="teal" > {text.substring(0, 40)} </Text> 
+       <Text fontSize="22" color="teal" > {text} </Text> 
        <Flex width={["100%","90%","90%","80%"]} justifyContent="space-evenly">
         <Text fontSize="20" color="gray" fontWeight="500">Exclusive :</Text>
         <Text fontSize="23" color="violet" fontWeight="600">{exclusive||"FB Plus"}</Text>
@@ -41,7 +41,7 @@ const Card = ({ id,img,text,exclusive,price,challenge,perDay,link, change }) => 
         <Text fontSize="23" color="violet" fontWeight="600">{price}</Text>
        </Flex>
        <Flex justifyContent="space-between" mt="5">
-         <UpdateProgram  id={id} price={price} change={change} perDay={perDay} link={link} challenge={challenge} exclusive={exclusive} text={text} img={img} />         
+         <UpdateProgram  id={id} price={price} UpdateChange={UpdateChange} perDay={perDay} link={link} challenge={challenge} exclusive={exclusive} text={text} img={img} />         
          <Button onClick={()=>deleteCard(id)} colorScheme="red">Delete</Button>
         </Flex>
     </Box> 
