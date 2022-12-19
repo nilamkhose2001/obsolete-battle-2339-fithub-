@@ -24,7 +24,7 @@ import { isExpired, decodeToken } from "react-jwt";
 export const Navbar = () => {
     const [program,setProgram]=useState(false)
     const [workout,setWorkout]=useState(false)
-    const token=localStorage.getItem("token")
+    const token=localStorage.getItem("token")||""
     const myDecodedToken = decodeToken(token);
     console.log(myDecodedToken)
     const handlehover1=()=>{
@@ -96,7 +96,7 @@ export const Navbar = () => {
               <BsBag style={{ fontSize: "17px" }} />
               </Link>
             </Box>
-            {myDecodedToken.role==='admin'?<Box>
+            {myDecodedToken?.role==='admin'?<Box>
              <Link to='/admin-dashboard'>
               <GrUserAdmin style={{'fontSize':'20px'}}/>
              </Link>
@@ -210,7 +210,7 @@ export const Navbar = () => {
       Signup
     </Link>
     </MenuItem>
-    {myDecodedToken.role==='admin'?<MenuItem>
+    {myDecodedToken?.role==='admin'?<MenuItem>
               <Link to='/admin-dashboard'>
               Admin
              </Link>
