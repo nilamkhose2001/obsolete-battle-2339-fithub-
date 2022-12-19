@@ -17,6 +17,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { Link } from "react-router-dom";
+import avatarImg from "../../../Media/avatar.webp"
 
 
 export default function Navbar() {
@@ -40,7 +41,7 @@ export default function Navbar() {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={'https://lh3.googleusercontent.com/a/AEdFTp4-Wx2-dbRzYqAaqPwMJUns1MeWeUdlVPQY-qI=s360-p-rw-no'}
+                    src={avatarImg}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -48,7 +49,7 @@ export default function Navbar() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://lh3.googleusercontent.com/a/AEdFTp4-Wx2-dbRzYqAaqPwMJUns1MeWeUdlVPQY-qI=s360-p-rw-no'}
+                      src={avatarImg}
                     />
                   </Center>
                   <br />
