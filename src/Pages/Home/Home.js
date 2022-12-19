@@ -4,6 +4,7 @@ import FbPlus from "../../Components/Home/FbPlus";
 import Features from "../../Components/Home/Features";
 import FeelFree from "../../Components/Home/FeelFree";
 import NotSure from "../../Components/Home/NotSure";
+import Footer from "../../Components/Home/Footer";
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
       <Features />
       <Community />
       <NotSure />
-      
+      <Footer />
     </div>
   );
 };

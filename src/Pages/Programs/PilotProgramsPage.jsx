@@ -6,6 +6,7 @@ import CardComponent from "../../Components/Programs/CardComponent";
 import PageHeading from "../../Components/Programs/PageHeading";
 import ResultAndSortOptions from "../../Components/Programs/ResultAndSortOptions";
 import { getPilotPrograms } from "../../Redux/Programs/programs.action";
+import Footer from "../../Components/Home/Footer";
 
 export default function PilotProgramsPage() {
   const [openModal, setModalStatus] = useState(false);
@@ -29,49 +30,52 @@ export default function PilotProgramsPage() {
   }, []);
 
   return (
-    <div>
-      {/* heading*/}
-      <PageHeading pageName="Pilot Programs" />
-      <Box py="3" px="10" pb="10">
-        <Text>Pilot programs include new and beta programs.</Text>
-      </Box>
+    <>
+      <div>
+        {/* heading*/}
+        <PageHeading pageName="Pilot Programs" />
+        <Box py="3" px="10" pb="10">
+          <Text>Pilot programs include new and beta programs.</Text>
+        </Box>
 
-      {/* content  */}
-      <Box bg="#F0F4F6">
-        {/* result and sort */}
-        {pilotProgramData.length !== 0 && (
-          <ResultAndSortOptions
-            result={pilotProgramData.length}
-            options={optionsArray}
-          />
-        )}
-        {/* workout programs  */}
-        <Flex px="2" pb="2" flexWrap="wrap" gap="1" justifyContent="start">
-          {pilotProgramData.map((program) => (
-            <CardComponent
-              key={program._id}
-              id={program._id}
-              image={program.image}
-              week={program.week}
-              time={program.time}
-              desc={program.title}
-              subtitle={program.subtitle}
-              price={program.price}
-              contentshref={program[`contents href`]}
-              exclusiveitem={program.exclusiveitem}
-              isClicked={clicked}
-              programObj={program}
+        {/* content  */}
+        <Box bg="#F0F4F6">
+          {/* result and sort */}
+          {pilotProgramData.length !== 0 && (
+            <ResultAndSortOptions
+              result={pilotProgramData.length}
+              options={optionsArray}
             />
-          ))}
-        </Flex>
-      </Box>
-      {programData !== undefined ? (
-        <AddToBagModal
-          openModal={openModal}
-          setModalStatus={setModalStatus}
-          programData={programData}
-        />
-      ) : null}
-    </div>
+          )}
+          {/* workout programs  */}
+          <Flex px="2" pb="2" flexWrap="wrap" gap="1" justifyContent="start">
+            {pilotProgramData.map((program) => (
+              <CardComponent
+                key={program._id}
+                id={program._id}
+                image={program.image}
+                week={program.week}
+                time={program.time}
+                desc={program.title}
+                subtitle={program.subtitle}
+                price={program.price}
+                contentshref={program[`contents href`]}
+                exclusiveitem={program.exclusiveitem}
+                isClicked={clicked}
+                programObj={program}
+              />
+            ))}
+          </Flex>
+        </Box>
+        {programData !== undefined ? (
+          <AddToBagModal
+            openModal={openModal}
+            setModalStatus={setModalStatus}
+            programData={programData}
+          />
+        ) : null}
+      </div>
+      <Footer />
+    </>
   );
 }

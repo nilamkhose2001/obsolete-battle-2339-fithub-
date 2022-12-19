@@ -7,6 +7,7 @@ import FilterAndSearch from "../../Components/Programs/FilterAndSearch";
 import PageHeading from "../../Components/Programs/PageHeading";
 import ResultAndSortOptions from "../../Components/Programs/ResultAndSortOptions";
 import { getMealPlans } from "../../Redux/Programs/programs.action";
+import Footer from "../../Components/Home/Footer";
 
 export default function MealPlansPage() {
   const [openModal, setModalStatus] = useState(false);
@@ -36,48 +37,51 @@ export default function MealPlansPage() {
   }, []);
 
   return (
-    <div>
-      {/* heading*/}
-      <PageHeading pageName="Meal Plans" />
-      {/* filter,search   */}
-      <FilterAndSearch />
+    <>
+      <div>
+        {/* heading*/}
+        <PageHeading pageName="Meal Plans" />
+        {/* filter,search   */}
+        <FilterAndSearch />
 
-      {/* content  */}
-      <Box bg="#F0F4F6">
-        {/* result and sort */}
-        {mealPlansData.length !== 0 && (
-          <ResultAndSortOptions
-            result={mealPlansData.length}
-            options={optionsArray}
-          />
-        )}
-        {/* workout programs  */}
-        <Flex px="2" pb="2" flexWrap="wrap" gap="1" justifyContent="start">
-          {mealPlansData.map((program) => (
-            <CardComponent
-              key={program._id}
-              id={program._id}
-              image={program.image}
-              week={program.week}
-              time={program.time}
-              desc={program.title}
-              subtitle={program.subtitle}
-              price={program.price}
-              contentshref={program[`contents href`]}
-              exclusiveitem={program.exclusiveitem}
-              isClicked={clicked}
-              programObj={program}
+        {/* content  */}
+        <Box bg="#F0F4F6">
+          {/* result and sort */}
+          {mealPlansData.length !== 0 && (
+            <ResultAndSortOptions
+              result={mealPlansData.length}
+              options={optionsArray}
             />
-          ))}
-        </Flex>
-      </Box>
-      {programData !== undefined ? (
-        <AddToBagModal
-          openModal={openModal}
-          setModalStatus={setModalStatus}
-          programData={programData}
-        />
-      ) : null}
-    </div>
+          )}
+          {/* workout programs  */}
+          <Flex px="2" pb="2" flexWrap="wrap" gap="1" justifyContent="start">
+            {mealPlansData.map((program) => (
+              <CardComponent
+                key={program._id}
+                id={program._id}
+                image={program.image}
+                week={program.week}
+                time={program.time}
+                desc={program.title}
+                subtitle={program.subtitle}
+                price={program.price}
+                contentshref={program[`contents href`]}
+                exclusiveitem={program.exclusiveitem}
+                isClicked={clicked}
+                programObj={program}
+              />
+            ))}
+          </Flex>
+        </Box>
+        {programData !== undefined ? (
+          <AddToBagModal
+            openModal={openModal}
+            setModalStatus={setModalStatus}
+            programData={programData}
+          />
+        ) : null}
+      </div>
+      <Footer />
+    </>
   );
 }
