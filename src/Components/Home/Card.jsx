@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
   const { image, title, subtitle, price } = props;
   return (
-    <Link to="">
+    <Link to="/workoutprogram">
       <Box
         w={{ lg: "100%", md: "100%" }}
         bg="white"
