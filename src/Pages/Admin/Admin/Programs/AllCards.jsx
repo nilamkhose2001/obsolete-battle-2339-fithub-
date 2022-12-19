@@ -10,14 +10,18 @@ import SpinnerLoading from "../Workout/SpinneLoading";
 
 const AllCards = () => {
     
-    const data = useSelector((store) => store.programs.programData);
     const [ page, setPage] = useState(1);
-    const [updateToggle, setUpdateToggle] = useState(false);
     const dispatch = useDispatch();
-    
+
+    const [updateToggle, setUpdateToggle] = useState(1);
+    const data = useSelector((store) => store.programs.programData);
+
 
     function UpdateChange(){
-      setUpdateToggle(!updateToggle)
+      setTimeout(()=>{
+      setUpdateToggle(prev=> prev+1)
+
+      },3000)
     }
     
 

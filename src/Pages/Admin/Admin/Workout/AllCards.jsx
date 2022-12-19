@@ -12,13 +12,15 @@ const AllCards = () => {
 
   const [ page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const [updateToggle, setUpdateToggle] = useState(false);
-    const data =useSelector(store=>store.workout.WorkoutAdminData)
+  const [updateToggle, setUpdateToggle] = useState(1);
+    const data =useSelector(store=>store.workout.WorkoutAdminData);
 
+    function UpdateChange(){
+      setTimeout(()=>{
+      setUpdateToggle(prev=> prev+1)
 
-function UpdateChange(){
-    setUpdateToggle(!updateToggle)
-  }
+      },3000)
+    }
   
   useEffect(()=>{
    dispatch(getWorkout(`https://fithub.onrender.com/products?category=workout&page=${page}&limit=10`));
