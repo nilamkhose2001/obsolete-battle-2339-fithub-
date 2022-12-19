@@ -57,7 +57,7 @@ const SignIn = () => {
       spacing={10}
       align='stretch'
     >
-    <Heading color="teal">Join</Heading>
+    <Heading textAlign="center" color="teal">Join</Heading>
 
     <Flex>
          <Stack direction={['column', 'row']} spacing={["10", "30"]}  m="auto" textAlign="center">
@@ -66,7 +66,7 @@ const SignIn = () => {
          </Stack>
     </Flex>
     <hr />
-    <Text>OR</Text>
+    <Text textAlign="center">OR</Text>
 
       <Box textAlign="center">
       <form onSubmit={(e)=>handleSubmit(e)}>

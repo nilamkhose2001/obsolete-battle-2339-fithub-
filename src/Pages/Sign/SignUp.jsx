@@ -50,7 +50,7 @@ const SignUp = () => {
       spacing={10}
       align='stretch'
     >
-    <Heading color="teal">Join</Heading>
+    <Heading textAlign="center" color="teal">Join</Heading>
 
     <Flex>
          <Stack direction={['column', 'row']} spacing={["10", "30"]}  m="auto">
@@ -59,9 +59,9 @@ const SignUp = () => {
          </Stack>
     </Flex>
     <hr />
-    <Text>OR</Text>
+    <Text textAlign="center">OR</Text>
     <Stack direction={['column', 'column', 'row']} spacing="120px">
-      <Box w={["100%","90%","40%"]}>
+      <Box w={["100%","90%","50%"]}>
         <VStack
           spacing={5}
           align='stretch'>
@@ -97,8 +97,8 @@ const SignUp = () => {
                     name="confirmpassword" />
         </VStack>
       </Box>
-      <Box w={["100%","90%","45%"]}  borderRadius="20"  boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px">
-          <Text fontSize="20" fontFamily="sans-serif" mb="5" mt="4">Key Benfits:</Text>
+      <Box w={["100%","90%","40%"]}  borderRadius="20"  boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px">
+          <Text fontSize="20" fontFamily="sans-serif" ml="5" mb="5" mt="4">Key Benfits:</Text>
           <Box w="70%" m="auto">
            <VStack
               spacing={5}
@@ -113,8 +113,9 @@ const SignUp = () => {
           </Box>
       </Box>
       </Stack>
-    
-    <Checkbox defaultChecked> <Text fontSize="19"> I agree to the Fitness Blender terms of service and privacy policy JOIN</Text></Checkbox>
+    <Box textAlign="center">
+          <Checkbox defaultChecked> <Text fontSize="19"> I agree to the Fitness Blender terms of service and privacy policy JOIN</Text></Checkbox>
+    </Box>
    <Box pl={["50","50","90","220"]}>
        <Captcha />
     </Box>
@@ -122,7 +123,7 @@ const SignUp = () => {
           <Button w="35%" colorScheme='twitter' onClick={print}> Join </Button>
     </Box>
 
-    <Text fontSize="20" display="inline">Already a member? <Link to='/signin' display="inline" color="blue.400">Sign In</Link> </Text>
+    <Text fontSize="20" display="inline" textAlign="center">Already a member? <Link to='/signin' display="inline"> <Text color="blue" _hover={{color:"red"}}>Sign In</Text> </Link> </Text>
     
         
 
