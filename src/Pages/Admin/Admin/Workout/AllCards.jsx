@@ -19,7 +19,7 @@ const AllCards = () => {
       setTimeout(()=>{
       setUpdateToggle(prev=> prev+1)
 
-      },3000)
+      },1000)
     }
   
   useEffect(()=>{
