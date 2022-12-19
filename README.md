@@ -1,70 +1,128 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo]()
 
-## Available Scripts
 
-In the project directory, you can run:
+# Fithub : Website_Clone
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Fithub is an American digital fitness content publisher founded by personal trainers Kelli and Daniel Segars.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Fithub Blender provides free full length workout videos, workout routines, healthy recipes and more.
 
-### `npm test`
+Speaking of the technical aspects, the site is fairly static with very few features, 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Website implements the functioning of an E-commerce Website that performs various functions like sign up, sign in, log out, Product , billing, Products Details, and much more.
 
-### `npm run build`
+Designed the clone with the static page with fuctional features within the stipulated time. Used and applied Reactjs, CSS and JavaScript as well as Chakra-Ui the clone. Worked with a 5-member research team for accomplishing the same. 
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- REACT.js
+- CSS
+- JAVSCRIPT
+- CHAKRA UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Demo
 
-## Learn More
+- Live Demo : 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Home Page**
 
-### Analyzing the Bundle Size
+![Fithub_1]( )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Fithub_2]( )
 
-### Making a Progressive Web App
+![Fithub_3]( )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Product Page**
 
-### Advanced Configuration
+![Fithub_4]( )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Product Details Page**  
 
-### Deployment
+![Fithub_5]( )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Login/Sign Up Page**
 
-### `npm run build` fails to minify
+![Fithub_6]( )
+![Fithub_7]( )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Cart/Checkout Page**
+![Fithub_8]( )
+![Fithub_9]( )
+![Fithub_10]( )
+
+
+## Installation
+
+Install the project with Vs Code
+
+```bash
+ install vs code 
+```
+    
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone 
+```
+
+Go to the project directory
+
+```bash
+  npm i
+```
+
+Run project
+
+```bash
+ npm start
+```
+
+
+
+
+## 🔗 Contact Me
+[![portfolio]( )
+
+[![linkedin]( )
+
+
+
+
+## Contributions
+
+Contributions are always welcome!
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **Greatly Appreciated**.
+
+If you have a suggestion that would make this better, Please fork the repo and create a pull request. You can also connect with us !
+
+Don't forget to give the project a star! Thanks again!
+
+## Authors
+
+- [@Nilam Anil Khose](https://www.github.com/nilamkhose2001)
+- [@Bishal Sharma](https://www.github.com/bishal00sharma)
+- [@Satyam Kumar](https://www.github.com/satyam0337)
+- [@Aman Deep Kujur](https://github.com/amandk5)
+- [@Nikhil Sahni](https://github.com/snikhil2001)
+
+
+
+
+## Acknowledgements
+
+ - [Masai School](https://www.masaischool.com/)
+ 
