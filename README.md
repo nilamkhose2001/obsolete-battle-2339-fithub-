@@ -29,7 +29,7 @@ Designed the clone with the static page with fuctional features within the stipu
 
 ## Demo
 
-- Live Demo : 
+- Live Demo : https://fithub-snikhil2001.vercel.app/
 
 
 
