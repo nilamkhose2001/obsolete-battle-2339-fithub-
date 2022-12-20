@@ -36,7 +36,7 @@ Designed the clone with the static page with fuctional features within the stipu
 
 ## Demo
 
-- Live Demo : https://obsolete-battle-2339-fithub.vercel.app/
+- Live Demo : https://fithub-snikhil2001.vercel.app/
 
 
 
