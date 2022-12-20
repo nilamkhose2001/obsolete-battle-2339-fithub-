@@ -1,5 +1,6 @@
 
-![Logo]()
+
+![image](https://user-images.githubusercontent.com/105915649/208593399-e1379ef2-d9fc-429a-8e68-7c07db8ea94c.png)
 
 
 # Fithub : Website_Clone
@@ -37,29 +38,34 @@ Designed the clone with the static page with fuctional features within the stipu
 
 - **Home Page**
 
-![Fithub_1]( )
+![image](https://user-images.githubusercontent.com/105915649/208588267-d9127744-9cc8-44e9-a367-c19061d7d975.png)
 
-![Fithub_2]( )
+ 
 
-![Fithub_3]( )
+![image](https://user-images.githubusercontent.com/105915649/208593602-68add55c-6b4c-4e2b-ac3e-6b337c52368c.png)
+
+![image](https://user-images.githubusercontent.com/105915649/208593651-0d10f706-c8ee-4bbe-8b01-2a36ce86cff3.png)
 
 - **Product Page**
 
-![Fithub_4]( )
+![image](https://user-images.githubusercontent.com/105915649/208593731-c4fba2a0-4c45-4ad8-9fef-ef578ff7b2fc.png)
+
 
 - **Product Details Page**  
 
-![Fithub_5]( )
+![image](https://user-images.githubusercontent.com/105915649/208593790-a86994c6-0fc8-45b5-9f19-cbaaa3c6c210.png)
 
 - **Login/Sign Up Page**
 
-![Fithub_6]( )
-![Fithub_7]( )
+![image](https://user-images.githubusercontent.com/105915649/208593844-3d1ac9bb-5370-4840-b3d2-f31df9f5f286.png)
+
+![image](https://user-images.githubusercontent.com/105915649/208593885-f5cbd920-34a6-4a1c-89be-e414a24f17dd.png)
+
 
 - **Cart/Checkout Page**
-![Fithub_8]( )
-![Fithub_9]( )
-![Fithub_10]( )
+![image](https://user-images.githubusercontent.com/105915649/208594210-3e9c889b-acf0-4c8c-ac6d-4cfac4b13b42.png)
+
+
 
 
 ## Installation
@@ -94,9 +100,10 @@ Run project
 
 
 ## 🔗 Contact Me
-[![portfolio]( )
 
-[![linkedin]( )
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://satyam0337.github.io/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/satyam-kumar-526004237/)
+
 
 
 
