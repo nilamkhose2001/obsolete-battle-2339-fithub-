@@ -29,11 +29,11 @@ const SignIn = () => {
   const [formstate, setFormstate] = useState(initialState);
   const toast = useToast();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     const val = value;
-    const navigate = useNavigate();
 
     setFormstate({
       ...formstate,
