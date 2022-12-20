@@ -22,6 +22,12 @@ Designed the clone with the static page with fuctional features within the stipu
 - JAVSCRIPT
 - CHAKRA UI
 
+## Features
+
+- Admin page
+- Sign Up 
+- Login/Log out
+- Add to Cart
 
 
 
